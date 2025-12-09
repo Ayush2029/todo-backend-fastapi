@@ -183,7 +183,7 @@ You should see a simple JSON response like:
   "message": "Todo API is running"
 }
 ```
- **5.2 API Docs (Swagger UI) **
+ **5.2 API Docs**
  FastAPI automatically provides docs:
  ```http://127.0.0.1:8000/docs <br>```
 From this UI, you can: <br>
