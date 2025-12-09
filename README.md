@@ -1,8 +1,6 @@
-# todo-backend-fastapi
-
 # Todo API (FastAPI + SQLite)
 
-A simple but complete **RESTful API for managing Todo items**, built with **FastAPI** and **SQLite** using **SQLAlchemy** as the ORM.
+A simple **RESTful API for managing Todo items**, built with **FastAPI** and **SQLite** using **SQLAlchemy** as the ORM.
 The API supports:
 - Full CRUD for todos
 - Filtering by status & priority
@@ -31,12 +29,11 @@ The API supports:
 todo-api/
 ├── app/
 │   ├── __init__.py
-│   ├── main.py          # FastAPI app, routes, dependency wiring
-│   ├── database.py      # DB engine, SessionLocal, Base
-│   ├── models.py        # SQLAlchemy models (Todo, Tag, TodoTag link, etc.)
-│   ├── schemas.py       # Pydantic models (request/response schemas)
-│   ├── crud.py          # DB access logic for todos
-│   └── config.py        # (optional) settings, DB URL, etc. if present
+│   ├── main.py          
+│   ├── database.py      
+│   ├── models.py        
+│   ├── schemas.py       
+│   ├── crud.py                
 │
 ├── tests/
 │   ├── __init__.py
