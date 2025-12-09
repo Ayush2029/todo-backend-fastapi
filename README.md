@@ -42,77 +42,76 @@ todo-api/
 ├── requirements.txt     
 └── README.md            
 ```
-```text
-Role of each file:
-1] `app/main.py`
-- Creates the FastAPI application instance.
-- Defines the root health-check route `/`.
-- Implements all Todo routes:
-    (a) `POST /todos` – create
-    (b) `GET /todos` – list with filters/search/sort/pagination
-    (c) `GET /todos/{id}` – retrieve by ID
-    (d) `PUT /todos/{id}` – update
-    (e) `DELETE /todos/{id}` – delete
-- Handles dependency injection for database sessions.
 
-2] `app/database.py`
-- Defines `SQLALCHEMY_DATABASE_URL` (SQLite).
-- Creates the SQLAlchemy engine.
-- Defines `SessionLocal` for DB sessions.
-- Declares `Base` for models to inherit from.
+Role of each file: <br>
+1] `app/main.py` <br>
+- Creates the FastAPI application instance. <br>
+- Defines the root health-check route `/`. <br>
+- Implements all Todo routes:<br>
+    (a) `POST /todos` – create<br>
+    (b) `GET /todos` – list with filters/search/sort/pagination<br>
+    (c) `GET /todos/{id}` – retrieve by ID<br>
+    (d) `PUT /todos/{id}` – update<br>
+    (e) `DELETE /todos/{id}` – delete<br>
+- Handles dependency injection for database sessions.<br>
 
-3] `app/models.py`
-- Defines ORM models:
-    (a) Todo model with fields:
-        - id 
-        - title
-        - description
-        - due_date
-        - priority 
-        - is_completed
-        - created_at
-        - updated_at
-    (b) Tag model and the many-to-many relationship.
-- Adds relationships if using a join table for tags.
+2] `app/database.py`<br>
+- Defines `SQLALCHEMY_DATABASE_URL` (SQLite).<br>
+- Creates the SQLAlchemy engine.<br>
+- Defines `SessionLocal` for DB sessions.<br>
+- Declares `Base` for models to inherit from.<br>
 
-4] `app/schemas.py`
-- Pydantic models for validation & serialization:
-    (a) TodoBase
-    (b) TodoCreate
-    (c) TodoUpdate
-    (d) TodoRead
-    (e) Tag / TagCreate if needed
-- These ensure:
-    (a) title is required and non-empty.
-    (b) priority is one of: low, medium, high (default: medium).
-    (c) is_completed defaults to False.
-    (d) Timestamps are auto-set in responses.
+3] `app/models.py`<br>
+- Defines ORM models:<br>
+    (a) Todo model with fields:<br>
+        - id <br>
+        - title<br>
+        - description<br>
+        - due_date<br>
+        - priority <br>
+        - is_completed<br>
+        - created_at<br>
+        - updated_at<br>
+    (b) Tag model and the many-to-many relationship.<br>
+- Adds relationships if using a join table for tags.<br>
 
-5] `app/crud.py`
-- Encapsulates database operations:
-    (a) create_todo
-    (b) get_todo
-    (c) list_todos (with filters/search/sort/pagination)
-    (d) update_todo
-    (e) delete_todo
-- Keeps business logic separate from the API layer.
+4] `app/schemas.py`<br>
+- Pydantic models for validation & serialization:<br>
+    (a) TodoBase <br>
+    (b) TodoCreate<br>
+    (c) TodoUpdate<br>
+    (d) TodoRead<br>
+    (e) Tag / TagCreate if needed<br>
+- These ensure:<br>
+    (a) title is required and non-empty.<br>
+    (b) priority is one of: low, medium, high (default: medium).<br>
+    (c) is_completed defaults to False.<br>
+    (d) Timestamps are auto-set in responses.<br>
 
-6] `tests/test_todos.py`
-- Uses pytest and TestClient to test:
-    (a) Creating a todo (201)
-    (b) Fetching todos (200)
-    (c) Fetching non-existing todo → 404
-- Can be extended with more edge cases.
+5] `app/crud.py`<br>
+- Encapsulates database operations:<br>
+    (a) create_todo<br>
+    (b) get_todo<br>
+    (c) list_todos (with filters/search/sort/pagination)<br>
+    (d) update_todo<br>
+    (e) delete_todo<br>
+- Keeps business logic separate from the API layer.<br>
 
-7] requirement.txt
-- Contains all required dependencies:
-    (a) fastapi
-    (b) uvicorn
-    (c) sqlalchemy
-    (d) pydantic
-    (e) pytest
-    (f) httpx
-```
+6] `tests/test_todos.py`<br>
+- Uses pytest and TestClient to test:<br>
+    (a) Creating a todo (201)<br>
+    (b) Fetching todos (200)<br>
+    (c) Fetching non-existing todo → 404<br>
+- Can be extended with more edge cases.<br>
+
+7] requirement.txt<br>
+- Contains all required dependencies:<br>
+    (a) fastapi<br>
+    (b) uvicorn<br>
+    (c) sqlalchemy<br>
+    (d) pydantic<br>
+    (e) pytest<br>
+    (f) httpx<br>
 
 ## 3. Setup & Installation
 
