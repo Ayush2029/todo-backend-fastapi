@@ -113,3 +113,8 @@ Role of each file:
     (e) pytest
     (f) httpx
 ```
+
+## 3. Setup & Installation
+
+These steps assume macOS and Python 3.9+ is installed and available as python or python3
+
