@@ -37,7 +37,7 @@ todo-api/
 │
 ├── tests/
 │   ├── __init__.py
-│   └── test_todos.py    # pytest tests for Todo endpoints
+│   └── test_todos.py    
 │
-├── requirements.txt     # Python dependencies
-└── README.md            # Project documentation
+├── requirements.txt     
+└── README.md            
