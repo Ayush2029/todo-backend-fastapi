@@ -141,3 +141,6 @@ uvicorn app.main:app --reload
 ```
 1]  app.main:app = app package → main.py module → app variable. <br>
 2] --reload = auto-reload on code changes (development mode). <br>
+
+By default, the app runs at: <br>
+Base URL: ```http://127.0.0.1:8000/```
