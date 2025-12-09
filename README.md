@@ -136,38 +136,29 @@ Note: Using a virtualenv is generally recommended, but this project works fine w
 
 ## 4. Architecture Overview
 4.1. Layers <br>
-
 1] API Layer: <br>
 • Defines endpoints and query parameters. <br>
 • Uses Pydantic schemas for request & response models. <br>
-• Handles HTTP concerns (status codes, error messages). <br><br>
-
+• Handles HTTP concerns (status codes, error messages). <br>
 2] CRUD Layer: <br>
 • Contains the core logic for interacting with the database: <br>
 &nbsp;&nbsp;(a) Filtering by status/priority. <br>
 &nbsp;&nbsp;(b) Search by title/description. <br>
 &nbsp;&nbsp;(c) Sorting and pagination. <br>
-• Keeps DB operations separate and reusable. <br><br>
-
+• Keeps DB operations separate and reusable. <br>
 3] Data Layer: <br>
 • models.py: SQLAlchemy models mapping to DB tables. <br>
-• database.py: engine + session management + Base. <br><br>
-
+• database.py: engine + session management + Base. <br>
 4] Validation / Serialization Layer: <br>
 • Defines what clients can send and what they receive. <br>
-• Enforces constraints like required title, valid priority, etc. <br><br>
-
+• Enforces constraints like required title, valid priority, etc. <br>
 5] Tests: <br>
 • Ensures behavior is correct and stable. <br>
-• Makes refactoring safer. <br><br>
-
+• Makes refactoring safer. <br>
 4.2. Error Handling <br>
-
 (a) Uses HTTPException from FastAPI for controlled errors: <br>
-• Returns 404 when a Todo is not found. <br><br>
-
-(b) Relies on FastAPI/Pydantic for validation errors → returns 422 with structured details. <br><br>
-
+• Returns 404 when a Todo is not found. <br>
+(b) Relies on FastAPI/Pydantic for validation errors → returns 422 with structured details. <br>
 (c) Does not expose raw stack traces to the client. <br>
 
 
