@@ -136,31 +136,40 @@ Note: Using a virtualenv is generally recommended, but this project works fine w
 
 ## 4. Architecture Overview
 4.1. Layers <br>
-1] API Layer:  <br>
-- Defines endpoints and query parameters. <br>
-- Uses Pydantic schemas for request & response models. <br>
-- Handles HTTP concerns (status codes, error messages). <br>
+
+1] API Layer: <br>
+• Defines endpoints and query parameters. <br>
+• Uses Pydantic schemas for request & response models. <br>
+• Handles HTTP concerns (status codes, error messages). <br><br>
+
 2] CRUD Layer: <br>
-- Contains the core logic for interacting with the database:
-(a) Filtering by status/priority. <br>
-(b) Search by title/description. <br>
-(c) Sorting and pagination. <br>
-- Keeps DB operations separate and reusable. <br>
+• Contains the core logic for interacting with the database: <br>
+&nbsp;&nbsp;(a) Filtering by status/priority. <br>
+&nbsp;&nbsp;(b) Search by title/description. <br>
+&nbsp;&nbsp;(c) Sorting and pagination. <br>
+• Keeps DB operations separate and reusable. <br><br>
+
 3] Data Layer: <br>
-- models.py: SQLAlchemy models mapping to the DB tables. <br>
-- database.py: engine + session management + Base. <br>
-4] Validation/Serialization Layer:
-- Defines what clients can send and what they receive. <br>
-- Enforces constraints like required title, valid priority, etc. <br>
-5] Tests:
-- Ensures behavior is correct and stable. <br>
-- Makes refactoring safer. <br> <br>
+• models.py: SQLAlchemy models mapping to DB tables. <br>
+• database.py: engine + session management + Base. <br><br>
+
+4] Validation / Serialization Layer: <br>
+• Defines what clients can send and what they receive. <br>
+• Enforces constraints like required title, valid priority, etc. <br><br>
+
+5] Tests: <br>
+• Ensures behavior is correct and stable. <br>
+• Makes refactoring safer. <br><br>
 
 4.2. Error Handling <br>
+
 (a) Uses HTTPException from FastAPI for controlled errors: <br>
-- 404 when Todo not found. <br>
-(b) Lets FastAPI handle validation errors → 422 with structured detail. <br>
+• Returns 404 when a Todo is not found. <br><br>
+
+(b) Relies on FastAPI/Pydantic for validation errors → returns 422 with structured details. <br><br>
+
 (c) Does not expose raw stack traces to the client. <br>
+
 
 ## 5. Running the Application
 From the project root (same folder as requirements.txt):
