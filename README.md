@@ -154,7 +154,7 @@ Note: Using a virtualenv is generally recommended, but this project works fine w
 • Enforces constraints like required title, valid priority, etc. <br>
 5] Tests: <br>
 • Ensures behavior is correct and stable. <br>
-• Makes refactoring safer. <br>
+• Makes refactoring safer. <br><br>
 4.2. Error Handling <br>
 (a) Uses HTTPException from FastAPI for controlled errors: <br>
 • Returns 404 when a Todo is not found. <br>
