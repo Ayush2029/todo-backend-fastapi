@@ -165,18 +165,24 @@ From this UI, you can: <br>
 
 ## 5. HTTP Status Codes Used
 (a) 201 Created <br>
-* Successful creation of a todo (POST /todos) <br>
+• Successful creation of a todo (POST /todos) <br>
 (b) 200 OK <br>
-* Successful read or update: <br>
-- GET /todos <br>
-- GET /todos/{id} <br> 
-- PUT /todos/{id} <br>
+• Successful read or update: <br>
+&nbsp;&nbsp;- GET /todos <br>
+&nbsp;&nbsp;- GET /todos/{id} <br>
+&nbsp;&nbsp;- PUT /todos/{id} <br>
 (c) 204 No Content <br>
-* Successful delete with no response body: <br>
-- DELETE /todos/{id} <br>
+• Successful delete with no response body: <br>
+&nbsp;&nbsp;- DELETE /todos/{id} <br>
 (d) 404 Not Found <br>
-* Todo with given ID doesn’t exist. <br>
+• Todo with the given ID does not exist. <br>
 (e) 422 Unprocessable Entity <br>
-* Validation errors (invalid data), automatically handled by FastAPI/Pydantic. <br>
+• Validation errors (invalid data), automatically handled by FastAPI/Pydantic. <br>
 
 ## 6. Running Tests
+From the project root, run: <br>
+```pytest -q```
+or: <br>
+```python -m pytest -q```
+
+
