@@ -195,3 +195,8 @@ You do not need a separate terminal to run tests, but it is convenient to: <br>
 • Run the API server in one terminal (for manual testing via Postman/Browser). <br>
 • Run pytest in another terminal (for automated test execution). <br>
 
+## 7. How to Manually Verify All Features
+You can verify using: <br>
+- Swagger UI at ```/docs``` <br>
+- curl from terminal <br>
+- Postman / Insomnia / any REST client <br>
