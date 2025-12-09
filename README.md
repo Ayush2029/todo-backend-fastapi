@@ -136,3 +136,9 @@ python3 -m pip install -r requirements.txt
 Note: Using a virtualenv is generally recommended, but this project works fine without one as well.
 
 ## 4. Running the Application
+From the project root (same folder as requirements.txt):
+```
+uvicorn app.main:app --reload
+```
+1]  app.main:app = app package → main.py module → app variable. <br>
+2] --reload = auto-reload on code changes (development mode). <br>
