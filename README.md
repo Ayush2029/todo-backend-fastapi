@@ -144,3 +144,39 @@ uvicorn app.main:app --reload
 
 By default, the app runs at: <br>
 Base URL: ```http://127.0.0.1:8000/```
+<br>
+
+**4.1. Health check**
+Open this in your browser: <br>
+```GET http://127.0.0.1:8000/ <br>```
+You should see a simple JSON response like:
+```
+{
+  "message": "Todo API is running"
+}
+```
+ **4.2 API Docs (Swagger UI) **
+ FastAPI automatically provides docs:
+ ```http://127.0.0.1:8000/docs <br>```
+From this UI, you can: <br>
+- Explore all endpoints <br>
+- Send requests <br>
+- Inspect responses and status codes <br>
+
+## 5. HTTP Status Codes Used
+(a) 201 Created <br>
+* Successful creation of a todo (POST /todos) <br>
+(b) 200 OK <br>
+* Successful read or update: <br>
+- GET /todos <br>
+- GET /todos/{id} <br> 
+- PUT /todos/{id} <br>
+(c) 204 No Content <br>
+* Successful delete with no response body: <br>
+- DELETE /todos/{id} <br>
+(d) 404 Not Found <br>
+* Todo with given ID doesn’t exist. <br>
+(e) 422 Unprocessable Entity <br>
+* Validation errors (invalid data), automatically handled by FastAPI/Pydantic. <br>
+
+## 6. Running Tests
