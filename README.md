@@ -118,3 +118,4 @@ Role of each file:
 
 These steps assume macOS and Python 3.9+ is installed and available as python or python3
 
+**3.1. Clone the repository**
