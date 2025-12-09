@@ -185,4 +185,17 @@ From the project root, run: <br>
 or: <br>
 ```python -m pytest -q```
 
+-q = quiet mode (less verbose). <br><br>
+
+The tests use TestClient from FastAPI to: <br>
+• Create a todo and assert 201. <br>
+• Fetch todos and assert 200. <br>
+• Attempt to fetch a non-existent todo and assert 404. <br><br>
+
+You do not need a separate terminal to run tests, but it is convenient to: <br>
+• Run the API server in one terminal (for manual testing via Postman/Browser). <br>
+• Run pytest in another terminal (for automated test execution). <br><br>
+
+The tests typically use an in-memory or separate test database, <br>
+so they do not require the development server to be running. <br>
 
