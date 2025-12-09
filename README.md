@@ -134,7 +134,35 @@ python3 -m pip install -r requirements.txt
 ```
 Note: Using a virtualenv is generally recommended, but this project works fine without one as well.
 
-## 4. Running the Application
+## 4. Architecture Overview
+4.1. Layers <br>
+1] API Layer:  <br>
+- Defines endpoints and query parameters. <br>
+- Uses Pydantic schemas for request & response models. <br>
+- Handles HTTP concerns (status codes, error messages). <br>
+2] CRUD Layer: <br>
+- Contains the core logic for interacting with the database:
+(a) Filtering by status/priority. <br>
+(b) Search by title/description. <br>
+(c) Sorting and pagination. <br>
+- Keeps DB operations separate and reusable. <br>
+3] Data Layer: <br>
+- models.py: SQLAlchemy models mapping to the DB tables. <br>
+- database.py: engine + session management + Base. <br>
+4] Validation/Serialization Layer:
+- Defines what clients can send and what they receive. <br>
+- Enforces constraints like required title, valid priority, etc. <br>
+5] Tests:
+- Ensures behavior is correct and stable. <br>
+- Makes refactoring safer. <br> <br>
+
+4.2. Error Handling <br>
+(a) Uses HTTPException from FastAPI for controlled errors: <br>
+- 404 when Todo not found. <br>
+(b) Lets FastAPI handle validation errors → 422 with structured detail. <br>
+(c) Does not expose raw stack traces to the client. <br>
+
+## 5. Running the Application
 From the project root (same folder as requirements.txt):
 ```
 uvicorn app.main:app --reload
@@ -146,7 +174,7 @@ By default, the app runs at: <br>
 Base URL: ```http://127.0.0.1:8000/```
 <br>
 
-**4.1. Health check**
+**5.1. Health check**
 Open this in your browser: <br>
 ```GET http://127.0.0.1:8000/ <br>```
 You should see a simple JSON response like:
@@ -155,7 +183,7 @@ You should see a simple JSON response like:
   "message": "Todo API is running"
 }
 ```
- **4.2 API Docs (Swagger UI) **
+ **5.2 API Docs (Swagger UI) **
  FastAPI automatically provides docs:
  ```http://127.0.0.1:8000/docs <br>```
 From this UI, you can: <br>
@@ -163,7 +191,7 @@ From this UI, you can: <br>
 - Send requests <br>
 - Inspect responses and status codes <br>
 
-## 5. HTTP Status Codes Used
+## 6. HTTP Status Codes Used
 (a) 201 Created <br>
 • Successful creation of a todo (POST /todos) <br>
 (b) 200 OK <br>
@@ -179,7 +207,7 @@ From this UI, you can: <br>
 (e) 422 Unprocessable Entity <br>
 • Validation errors (invalid data), automatically handled by FastAPI/Pydantic. <br>
 
-## 6. Running Tests
+## 7. Running Tests
 From the project root, run: <br>
 ```pytest -q <br> ```
 or: <br>
@@ -195,7 +223,7 @@ You do not need a separate terminal to run tests, but it is convenient to: <br>
 • Run the API server in one terminal (for manual testing via Postman/Browser). <br>
 • Run pytest in another terminal (for automated test execution). <br>
 
-## 7. How to Manually Verify All Features
+## 8. How to Manually Verify All Features
 You can verify using: <br>
 - Swagger UI at ```/docs``` <br>
 - curl from terminal <br>
