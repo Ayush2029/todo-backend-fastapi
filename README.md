@@ -119,3 +119,20 @@ Role of each file:
 These steps assume macOS and Python 3.9+ is installed and available as python or python3
 
 **3.1. Clone the repository**
+```
+cd /path/where/you/want/the/project
+git clone <your-repo-url> todo-api
+cd todo-api
+```
+**3.2. Install dependencies (without venv)**
+You mentioned not using a virtual environment, so you can install directly:
+```
+pip install -r requirements.txt
+```
+If your pip points to a different Python, you can use:
+```
+python3 -m pip install -r requirements.txt
+```
+Note: Using a virtualenv is generally recommended, but this project works fine without one as well.
+
+## 4. Running the Application
