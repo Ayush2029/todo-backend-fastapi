@@ -135,7 +135,7 @@ python3 -m pip install -r requirements.txt
 Note: Using a virtualenv is generally recommended, but this project works fine without one as well.
 
 ## 4. Architecture Overview
-4.1. Layers <br>
+**4.1. Layers** <br>
 1] API Layer: <br>
 • Defines endpoints and query parameters. <br>
 • Uses Pydantic schemas for request & response models. <br>
@@ -155,7 +155,7 @@ Note: Using a virtualenv is generally recommended, but this project works fine w
 5] Tests: <br>
 • Ensures behavior is correct and stable. <br>
 • Makes refactoring safer. <br><br>
-4.2. Error Handling <br>
+**4.2. Error Handling** <br>
 (a) Uses HTTPException from FastAPI for controlled errors: <br>
 • Returns 404 when a Todo is not found. <br>
 (b) Relies on FastAPI/Pydantic for validation errors → returns 422 with structured details. <br>
